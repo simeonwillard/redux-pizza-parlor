@@ -1,16 +1,23 @@
 import axios from 'axios';
 import {useState} from 'react';
+import {useEffect} from 'react';
 
 function Admin() {
 
     const [orders, setOrders] = useState([])
 
-    axios.get('/api/order')
-    .then((response) => {
-        setOrders(response.data);
-    }).catch((err) => {
-        console.log(err);
-    })
+    useEffect(() => {
+        fetchOrders();
+    }, [])
+
+    const fetchOrders = () => {
+        axios.get('/api/order')
+        .then((response) => {
+            setOrders(response.data);
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
 
     return (
         <div>
