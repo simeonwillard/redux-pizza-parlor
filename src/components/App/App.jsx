@@ -4,6 +4,7 @@ import './App.css';
 import Admin from '../Admin/Admin.jsx';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import Header from '../Header/Header';
+import PizzaList from '../PizzaList/PizzaList';
 
 // Sean stuff below
 import Checkout from '../Checkout/Checkout.jsx'
@@ -16,6 +17,7 @@ function App() {
       <p>Pizza is great.</p>
       <CustomerForm />
       <Admin />
+      <PizzaList />
     </div>
   );
 }
