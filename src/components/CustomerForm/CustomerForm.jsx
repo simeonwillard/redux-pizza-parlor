@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 export default function CustomerForm() {
   const [custName, setCustName] = useState('');
@@ -9,6 +10,7 @@ export default function CustomerForm() {
   const [custType, setCustType] = useState('');
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -28,6 +30,8 @@ export default function CustomerForm() {
     setCustCity('');
     setCustZip('');
     setCustType('');
+
+    history.push('/checkout');
   };
 
   return (
