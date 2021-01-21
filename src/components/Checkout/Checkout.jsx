@@ -21,14 +21,14 @@ function Checkout() {
         console.log('clicked checkout');
         swal({
             title: "Checkout",
-            text: "Make sure your order is correct before submitting!",
+            text: "Make sure your order is perfect before submitting!",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("Order submitted!", {
+                    swal("Order submitted. Yum!", {
                         icon: "success",
                     });
                     const order = {
@@ -54,7 +54,7 @@ function Checkout() {
                             console.error(error);
                         });
                 } else {
-                    swal("Fix up your order - yum!");
+                    swal("See ya soon!");
                 }
             });
     }
