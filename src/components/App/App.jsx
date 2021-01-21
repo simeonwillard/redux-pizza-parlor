@@ -2,6 +2,9 @@ import React from 'react';
 import axios from 'axios';
 import './App.css';
 
+// Sean stuff below
+import Checkout from '../Checkout/Checkout.jsx'
+
 function App() {
 
   return (
@@ -12,6 +15,8 @@ function App() {
   
       <img src='images/pizza_photo.png' />
       <p>Pizza is great.</p>
+
+      <Checkout />
   
     </div>
   );
