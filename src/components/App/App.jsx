@@ -16,6 +16,10 @@ function App() {
       <p>Pizza is great.</p>
       <CustomerForm />
       <Admin />
+
+      <Checkout />
+
+
     </div>
   );
 }
