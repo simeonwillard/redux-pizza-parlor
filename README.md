@@ -4,7 +4,7 @@ Before you get started make sure to read through **ALL** requirements and outlin
 
 ### Setup
 
-Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `pizza_parlor` database.
+Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `pizza_parlor` database. .
 
 **Import data**
 
@@ -31,25 +31,19 @@ The tasks for Base Mode are broken down further [on this Trello Board](https://t
 
 After starting up the server, the following routes should be available. You can test them with Postman.
 
-### GET PIZZA  
+### GET PIZZA
 
 `/api/pizza`
 
-**Returns** an array of objects with *
+**Returns** an array of objects with \*
 
-
-
-
-
-
-
-*, *name*, *description*, *image_path* and *cost* properties. 
+*, *name*, *description*, *image_path* and *cost\* properties.
 
 ### POST ORDER
 
 `/api/order`
 
-**Post Data** should be an object that contains user information, *customer name*, *street address*, *city*, *zip*, *order_total* and an array of pizza id's as object. 
+**Post Data** should be an object that contains user information, _customer name_, _street address_, _city_, _zip_, _order_total_ and an array of pizza id's as object.
 
 **Example JSON Post Data:**
 
@@ -77,14 +71,13 @@ After starting up the server, the following routes should be available. You can 
 
 **Returns** an array of orders.
 
-
 ## BASE REQUIREMENTS
 
 Your client has asked your team to build a pizza ordering system.
 
 ### ORDER - SELECT PIZZA
 
-When visiting [http://localhost:3000/](http://localhost:3000/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page. 
+When visiting [http://localhost:3000/](http://localhost:3000/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page.
 
 This page should have a next button that brings the user to the **enter order details page**.
 
@@ -92,7 +85,7 @@ This page should have a next button that brings the user to the **enter order de
 
 ### ORDER - ENTER CUSTOMER INFORMATION
 
-Collect user information, *name*, *street address*, *city* and *zip*. This page should have an option to select pickup vs. delivery. The total cost of the order should appear in the top right of this page. This page should have a next button that brings the user to the **checkout** page.
+Collect user information, _name_, _street address_, _city_ and _zip_. This page should have an option to select pickup vs. delivery. The total cost of the order should appear in the top right of this page. This page should have a next button that brings the user to the **checkout** page.
 
 ![Select Pizza View](wireframes/screen-two.png)
 
@@ -107,7 +100,6 @@ Users should not be able to modify item totals on this screen. When they click c
 This page **should not** appear in the navigation bar. Eventually the client would like to add authentication but for now, it will be available to anyone with the url [http://localhost:3000/admin](http://localhost:3000/admin). This page will display the name, time and order total for each of the orders placed.
 
 ![Select Pizza View](wireframes/screen-admin.png)
-
 
 ## STRETCH GOALS
 
