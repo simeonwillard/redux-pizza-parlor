@@ -4,6 +4,9 @@ import './App.css';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import Header from '../Header/Header';
 
+// Sean stuff below
+import Checkout from '../Checkout/Checkout.jsx'
+
 function App() {
   return (
     <div className="App">
