@@ -28,3 +28,14 @@ header {
   padding: 0.5rem;
   height: 2rem;
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  float: center;
+  width: 70%;
+  margin: 0 auto;
+}

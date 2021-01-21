@@ -1,10 +1,12 @@
-import './Checkout.css'
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import axios from 'axios'
+import swal from 'sweetalert';
 
 function Checkout() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const cart = useSelector(state => state.pizzaList);
     const customer = useSelector(state => state.customerReducer);
@@ -16,38 +18,52 @@ function Checkout() {
 
     const handleClickCheckout = () => {
         console.log('clicked checkout');
-
-        // show confirmation dialogue
-
-        const order = {
-            customer_name: customer.customer_name,
-            street_address: customer.street_address,
-            city: customer.city,
-            zip: customer.zip,
-            total: total,
-            type: customer.type,
-            pizzas: [{
-                id: cart.id,
-                quantity: cart.quantity
-            }]
-            // what here ^^ ?
-        }
-
-        axios.post('/api/order', { order })
-            .then((response) => {
-                // post to db
-                // route back to pizza page (step 1)
-            }).catch((error) => {
-                console.error(error);
+        swal({
+            title: "Checkout",
+            text: "Make sure your order is perfect before submitting!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("Order submitted. Yum!", {
+                        icon: "success",
+                    });
+                    const order = {
+                        customer_name: customer.customer_name,
+                        street_address: customer.street_address,
+                        city: customer.city,
+                        zip: customer.zip,
+                        total: total,
+                        type: customer.type,
+                        pizzas: [{
+                            id: cart.id,
+                            quantity: cart.quantity
+                        }]
+                        // what here ^^ ?
+                    }
+                    axios.post('/api/order', { order })
+                        .then((response) => {
+                            // post to db
+                            // route back to pizza page (step 1)
+                            history.push('/')
+                            // clear dispatches
+                        }).catch((error) => {
+                            console.error(error);
+                        });
+                } else {
+                    swal("See ya soon!");
+                }
             });
     }
 
     return (
         <div>
             <h3>Step 3: Checkout</h3>
-            <p>Name {customer.customer_name}</p>
-            <p>Address {customer.street_address}</p>
-            <p>Pickup Type {customer.type}</p>
+            <p>Name: {customer.customer_name}</p>
+            <p>Address: {customer.street_address}</p>
+            <p>Pickup Type: {customer.type}</p>
             <table>
                 <thead>
                     <tr>
@@ -55,7 +71,6 @@ function Checkout() {
                         <th>Cost</th>
                     </tr>
                 </thead>
-
                 <tbody>
                     {/* map over TRs */}
                     <tr>
@@ -64,7 +79,7 @@ function Checkout() {
                     </tr>
                 </tbody>
             </table>
-            <h3>Total: total cost {total}</h3>
+            <h3>Total: {total}</h3>
             <button onClick={handleClickCheckout}>Checkout</button>
         </div>
     )
