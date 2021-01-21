@@ -33,14 +33,14 @@ function Admin() {
                     </tr>
                 </thead>
                 <tbody>
-                    {testArray.map((customer) => {
+                    {testArray.map((customer) =>
                         <tr key={customer.id}>
                             <td>{customer.customer_name}</td>
                             <td>{customer.time}</td>
                             <td>{customer.type}</td>
                             <td>{customer.total}</td>
                         </tr>
-                    })}
+                    )}
                 </tbody>
             </table>
         </div>
