@@ -6,7 +6,7 @@ import {Provider} from 'react-redux';
 import {createStore, combineReducers, applyMiddleware} from 'redux';
 import logger from 'redux-logger';
 
-const customerReducer = (state = {}, action) {
+const customerReducer = (state = {}, action) => {
     return state;
 }
 
@@ -32,7 +32,7 @@ const priceTotalReducer = (state = 0, action) => {
 
 
 
-const ordersReducer = (state = [], action) {
+const ordersReducer = (state = [], action) => {
     return state;
 }
 
