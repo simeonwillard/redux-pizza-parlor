@@ -15,6 +15,13 @@ function Admin() {
             time: '2:00pm',
             type: 'Pickup',
             total: 23.54
+        },
+        {
+            id: 3,
+            customer_name: 'Jordan',
+            time: '6:30pm',
+            type: 'Pickup',
+            total: 28.43
         }
     ]
 

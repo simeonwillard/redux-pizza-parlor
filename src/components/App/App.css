@@ -13,3 +13,8 @@
 .App-title {
   font-size: 2em;
 }
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
