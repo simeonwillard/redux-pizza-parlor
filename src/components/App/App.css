@@ -18,3 +18,13 @@ header {
   display: flex;
   justify-content: space-between;
 }
+
+.shopping-cart {
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  padding: 0.5rem;
+  height: 2rem;
+}

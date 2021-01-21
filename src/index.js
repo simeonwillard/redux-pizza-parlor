@@ -2,12 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
-import {Provider} from 'react-redux';
-import {createStore, combineReducers, applyMiddleware} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 
 const customerReducer = (state = {}, action) => {
-    return state;
+    switch (action.type) {
+        case 'SET_CUSTOMER':
+            return action.payload
+        default:
+            return state
+
+    }
 }
 
 

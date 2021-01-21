@@ -4,19 +4,23 @@ import './App.css';
 import Admin from '../Admin/Admin.jsx';
 import CustomerForm from '../CustomerForm/CustomerForm';
 import Header from '../Header/Header';
+import PizzaList from '../PizzaList/PizzaList.jsx';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 // Sean stuff below
-import Checkout from '../Checkout/Checkout.jsx'
+import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <img src="images/pizza_photo.png" />
-      <p>Pizza is great.</p>
-      <CustomerForm />
-      <Admin />
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <Route path="/" exact component={PizzaList} />
+        <Route path="/customerForm" component={CustomerForm} />
+        <Route path="/checkout" component={Checkout} />
+        <Route path="/admin" component={Admin} />
+      </div>
+    </Router>
   );
 }
 

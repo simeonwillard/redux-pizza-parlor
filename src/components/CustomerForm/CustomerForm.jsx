@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 export default function CustomerForm() {
   const [custName, setCustName] = useState('');
@@ -6,6 +7,8 @@ export default function CustomerForm() {
   const [custCity, setCustCity] = useState('');
   const [custZip, setCustZip] = useState('');
   const [custType, setCustType] = useState('');
+
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -18,18 +21,13 @@ export default function CustomerForm() {
       type: custType,
     };
 
-    console.log(
-      'name: ',
-      custName,
-      'addy: ',
-      custAddress,
-      'city: ',
-      custCity,
-      'zip: ',
-      custZip,
-      'type: ',
-      custType
-    );
+    dispatch({ type: 'SET_CUSTOMER', payload: custObj });
+
+    setCustAddress('');
+    setCustName('');
+    setCustCity('');
+    setCustZip('');
+    setCustType('');
   };
 
   return (
