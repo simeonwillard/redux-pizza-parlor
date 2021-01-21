@@ -6,8 +6,6 @@ import CustomerForm from '../CustomerForm/CustomerForm';
 import Header from '../Header/Header';
 import PizzaList from '../PizzaList/PizzaList.jsx';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
-
-// Sean stuff below
 import Checkout from '../Checkout/Checkout.jsx';
 
 function App() {
