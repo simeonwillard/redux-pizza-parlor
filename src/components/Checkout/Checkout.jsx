@@ -37,6 +37,7 @@ function Checkout() {
             .then((response) => {
                 // post to db
                 // route back to pizza page (step 1)
+                // clear dispatches
             }).catch((error) => {
                 console.error(error);
             });
