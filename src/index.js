@@ -14,7 +14,13 @@ const customerReducer = (state = {}, action) => {
 
 
 const pizzaList = (state = [], action) => {
-    return state;
+    switch(action.type) {
+        case 'SET_PIZZA':
+            return action.payload;
+
+        default:
+            return state;
+    }
 }
 
 
