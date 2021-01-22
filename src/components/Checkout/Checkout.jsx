@@ -8,7 +8,7 @@ function Checkout() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const cart = useSelector(state => state.pizzaList);
+    const cart = useSelector(state => state.pizzaCart);
     const customer = useSelector(state => state.customerReducer);
     const total = useSelector(state => state.priceTotalReducer);
 
@@ -39,7 +39,7 @@ function Checkout() {
                         type: customer.type,
                         pizzas: [{
                             id: cart.id,
-                            quantity: cart.quantity
+                            quantity: 1
                         }]
                         // what here ^^ ?
                     }
@@ -73,6 +73,9 @@ function Checkout() {
                 </thead>
                 <tbody>
                     {/* map over TRs */}
+                    {cart.map((pizza) => {
+                        return <tr><td>{cart.name}</td><td>{cart.price}</td></tr>
+                    })}
                     <tr>
                         <td>{cart.name}</td>
                         <td>{cart.price}</td>

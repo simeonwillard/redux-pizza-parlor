@@ -42,7 +42,8 @@ function PizzaList() {
         // then sending that pizza.price to the reducer
         const payload = pizzaList.filter((pizza) => pizza.id === event)
         dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
-        dispatch({type: 'ADD_CART', payload: event});
+        const pizzaload = pizzaList.filter((pizza) => pizza.id === event)
+        dispatch({type: 'ADD_CART', payload: pizzaload});
     }
 
     return (
