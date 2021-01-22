@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 export default function Header() {
 
   const total = useSelector(store => store.priceTotalReducer)
+  const roundedTotal = (Math.round(total * 100) / 100).toFixed(2)
 
   return (
     <header className="App-header">
@@ -13,7 +14,7 @@ export default function Header() {
           src="/images/cart.svg"
           alt="A shopping cart icon"
         />
-        <h2>Total: {total}</h2>
+        <h2>Total: {roundedTotal}</h2>
       </div>
     </header>
   );
