@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react';
 import PizzaItem from '../PizzaItem/PizzaItem';
+import { useHistory } from 'react-router-dom';
 
 function PizzaList() {
 
@@ -10,6 +11,7 @@ function PizzaList() {
     console.log(pizzaList);
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     function getPizza() {
         axios.get('/api/pizza')
@@ -25,10 +27,15 @@ function PizzaList() {
             });
     }
 
+    const handleNext = () => {
+        history.push('/customerForm');
+    }
+
     useEffect(() => {
         console.log('in useEffect');
         getPizza();
     }, []);
+
 
     // const handleAdd = (event) => {
 
@@ -63,6 +70,9 @@ function PizzaList() {
 
                 </div>
             ))}
+        <button type="submit" onClick={handleNext}>
+            Next
+        </button>
         </div>
     )
 
