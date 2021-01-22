@@ -26,7 +26,6 @@ function PizzaList() {
       });
   }
 
-    const dispatch = useDispatch();
     const history = useHistory();
 
   // const handleAdd = (event) => {
