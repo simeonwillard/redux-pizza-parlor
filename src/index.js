@@ -16,11 +16,18 @@ const customerReducer = (state = {}, action) => {
     }
 }
 
-
+const pizzaCart = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_CART':
+            return [...state, action.payload];
+        default:
+            return state;
+    }
+}
 
 
 const pizzaList = (state = [], action) => {
-    switch(action.type) {
+    switch (action.type) {
         case 'SET_PIZZA':
             return action.payload;
 
@@ -36,8 +43,11 @@ const pizzaList = (state = [], action) => {
 
 const priceTotalReducer = (state = 0, action) => {
     switch (action.type) {
-        case 'TOTAL_PRICE':
+        case 'ADD_PRICE':
             return state + action.payload;
+
+        case 'SUBTRACT_PRICE':
+            return state + (-action.payload);
 
         default:
             return state;
@@ -63,7 +73,8 @@ const storeInstance = createStore(
         ordersReducer,
         priceTotalReducer,
         pizzaList,
-        customerReducer
+        customerReducer,
+        pizzaCart
     }),
     applyMiddleware(logger)
 );
