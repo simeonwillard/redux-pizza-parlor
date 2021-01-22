@@ -50,6 +50,9 @@ const priceTotalReducer = (state = 0, action) => {
 
         case 'SUBTRACT_PRICE':
             return state + (-action.payload);
+        
+        case 'RESET_PRICE':
+            return state - state;
 
         default:
             return state;
