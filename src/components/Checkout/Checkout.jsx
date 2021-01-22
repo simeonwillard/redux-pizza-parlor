@@ -41,9 +41,9 @@ function Checkout() {
                             id: cart.id,
                             quantity: 1
                         }]
-                        // what here ^^ ?
                     }
-                    axios.post('/api/order', { order })
+                    console.log(order);
+                    axios.post('/api/order', order)
                         .then((response) => {
                             // post to db
                             // route back to pizza page (step 1)
@@ -74,7 +74,7 @@ function Checkout() {
                 <tbody>
                     {/* map over TRs */}
                     {cart.map((pizza) => {
-                        return <tr><td>{cart.name}</td><td>{cart.price}</td></tr>
+                        return <tr key={pizza.id}><td>{pizza.name}</td><td>{pizza.price}</td></tr>
                     })}
                     <tr>
                         <td>{cart.name}</td>

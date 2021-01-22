@@ -20,6 +20,8 @@ const pizzaCart = (state = [], action) => {
     switch (action.type) {
         case 'ADD_CART':
             return [...state, action.payload];
+        case 'REMOVE_CART':
+            return state.filter(pizza => pizza.id !== action.payload.id);
         default:
             return state;
     }
