@@ -32,40 +32,40 @@ function PizzaList() {
 
     // const handleAdd = (event) => {
 
-        // filtering through pizzaList to find the id of the pizza we clicked on
-        // then sending that pizza.price to the reducer
-        const payload = pizzaList.filter((pizza) => pizza.id === event)
-        dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
-        const pizzaload = pizzaList.filter((pizza) => pizza.id === event)
-        dispatch({type: 'ADD_CART', payload: pizzaload});
-    }
+    // filtering through pizzaList to find the id of the pizza we clicked on
+    // then sending that pizza.price to the reducer
+    // const payload = pizzaList.filter((pizza) => pizza.id === event)
+    // dispatch({ type: 'TOTAL_PRICE', payload: Number(payload[0].price) });
+    // const pizzaload = pizzaList.filter((pizza) => pizza.id === event)
+    // dispatch({ type: 'ADD_CART', payload: pizzaload });
+
     //     // filtering through pizzaList to find the id of the pizza we clicked on
     //     // then sending that pizza.price to the reducer
     //     const payload = pizzaList.filter((pizza) => pizza.id === event);
     //     dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
-        
+
 
     // }
 
     return (
         <div>
             {pizzaList.map((pizza) => (
-        
+
                 <div key={pizza.id}>
                     <div><img src={pizza.image_path} />
-                    <div><h4><b>{pizza.name}</b></h4>
-                    <p>{pizza.description}</p>
-                    <p>Price: {pizza.price}</p>
-                    </div>
+                        <div><h4><b>{pizza.name}</b></h4>
+                            <p>{pizza.description}</p>
+                            <p>Price: {pizza.price}</p>
+                        </div>
                     </div>
                     {/* {clickedAdd ? <button>Remove</button> : <button onClick={(event) => handleAdd(pizza.id)}>Add</button>} */}
-                    <PizzaItem />
-                    
-                </div>  
+                    <PizzaItem pizza={pizza} />
+
+                </div>
             ))}
         </div>
     )
-}
 
+}
 
 export default PizzaList;
