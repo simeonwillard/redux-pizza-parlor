@@ -19,6 +19,10 @@ function Admin() {
         })
     }
 
+    const trackOrder = () => {
+
+    }
+
     return (
         <div>
             <h1>Prime Pizza Orders</h1>
@@ -30,6 +34,7 @@ function Admin() {
                         <td>Time Order Placed</td>
                         <td>Type</td>
                         <td>Cost</td>
+                        <td>Order Status</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -39,6 +44,7 @@ function Admin() {
                             <td>{customer.time}</td>
                             <td>{customer.type}</td>
                             <td>${customer.total}</td>
+                            <td><a href='https://melmagazine.com/wp-content/uploads/2019/05/3.png'>Tracker</a></td>
                         </tr>
                     )}
                 </tbody>
