@@ -3,27 +3,27 @@ import {useSelector, useDispatch} from 'react-redux';
 
 
 
-function PizzaItem() {
+function PizzaItem({pizza}) {
 
     const pizzaList = useSelector(state => state.pizzaList);
     const [clickedAdd, setClickedAdd] = useState();
     const dispatch = useDispatch();
 
-    const handleAdd = (event) => {
+    const handleAdd = () => {
         console.log('clicked add');
         setClickedAdd(!clickedAdd);
 
         // filtering through pizzaList to find the id of the pizza we clicked on
         // then sending that pizza.price to the reducer
-        const payload = pizzaList.filter((pizza) => pizzaList.id === event);
-        dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
+        dispatch({type: 'TOTAL_PRICE', payload: Number(pizza.price)});
+        dispatch({ type: 'ADD_CART', payload: pizza });
     }
 
 
     return (
         <section>
             <div>
-            {clickedAdd ? <button>Remove</button> : <button onClick={(event) => handleAdd(pizzaList.id)}>Add</button>} 
+            {clickedAdd ? <button>Remove</button> : <button onClick={handleAdd}>Add</button>} 
             </div>
         </section>
     )
