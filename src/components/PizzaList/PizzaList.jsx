@@ -4,61 +4,61 @@ import { useEffect } from 'react';
 import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaList() {
+  const pizzaList = useSelector((state) => state.pizzaList);
+  console.log(pizzaList);
 
+  const dispatch = useDispatch();
 
-    const pizzaList = useSelector(state => state.pizzaList);
-    console.log(pizzaList);
+  function getPizza() {
+    axios
+      .get('/api/pizza')
+      .then((response) => {
+        const action = {
+          type: 'SET_PIZZA',
+          payload: response.data,
+        };
+        dispatch(action);
+      })
+      .catch((error) => {
+        alert('error in GET');
+        console.log(error);
+      });
+  }
 
-    const dispatch = useDispatch();
+  useEffect(() => {
+    console.log('in useEffect');
+    getPizza();
+  }, []);
 
-    function getPizza() {
-        axios.get('/api/pizza')
-            .then(response => {
-                const action = {
-                    type: 'SET_PIZZA',
-                    payload: response.data
-                }
-                dispatch(action);
-            }).catch(error => {
-                alert('error in GET');
-                console.log(error);
-            });
-    }
+  // const handleAdd = (event) => {
 
-    useEffect(() => {
-        console.log('in useEffect');
-        getPizza();
-    }, []);
+  //     // filtering through pizzaList to find the id of the pizza we clicked on
+  //     // then sending that pizza.price to the reducer
+  //     const payload = pizzaList.filter((pizza) => pizza.id === event);
+  //     dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
 
-    // const handleAdd = (event) => {
+  // }
 
-    //     // filtering through pizzaList to find the id of the pizza we clicked on
-    //     // then sending that pizza.price to the reducer
-    //     const payload = pizzaList.filter((pizza) => pizza.id === event);
-    //     dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
-        
-
-    // }
-
-    return (
-        <div>
-            {pizzaList.map((pizza) => (
-        
-                <div key={pizza.id}>
-                    <div><img src={pizza.image_path} />
-                    <div><h4><b>{pizza.name}</b></h4>
-                    <p>{pizza.description}</p>
-                    <p>Price: {pizza.price}</p>
-                    </div>
-                    </div>
-                    {/* {clickedAdd ? <button>Remove</button> : <button onClick={(event) => handleAdd(pizza.id)}>Add</button>} */}
-                    <PizzaItem />
-                    
-                </div>  
-            ))}
+  return (
+    <div className="menu-container">
+      {pizzaList.map((pizza) => (
+        <div className="pizza-card" key={pizza.id}>
+          <div>
+            <img className="pizza-img" src={pizza.image_path} />
+            <div className="pizza-info">
+              <h4>
+                <b>{pizza.name}</b>
+              </h4>
+              <p>{pizza.description}</p>
+              <p>Price: {pizza.price}</p>
+            </div>
+          </div>
+          {/* {clickedAdd ? <button>Remove</button> : <button onClick={(event) => handleAdd(pizza.id)}>Add</button>} */}
+          <PizzaItem />
         </div>
-    )
+      ))}
+    </div>
+  );
 }
-
 
 export default PizzaList;

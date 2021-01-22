@@ -1,3 +1,9 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
 }
@@ -8,6 +14,8 @@
   padding: 20px;
   color: white;
   margin-bottom: 20px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .App-title {
@@ -29,7 +37,9 @@ header {
   height: 2rem;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -38,4 +48,51 @@ table {
   float: center;
   width: 70%;
   margin: 0 auto;
+}
+
+.menu-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin: 2rem;
+}
+
+.pizza-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 400px;
+  box-shadow: 2px 2px 10px black;
+  margin: 0.25rem;
+  border-radius: 10px;
+}
+
+.pizza-img {
+  width: 50%;
+  height: 50%;
+}
+
+.pizza-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+  margin: 0.5rem;
+}
+
+button {
+  background-color: #222;
+  color: white;
+  width: 200px;
+  height: 30px;
+  border-radius: 8px;
+}
+
+.add-btn {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
