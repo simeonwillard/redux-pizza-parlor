@@ -76,10 +76,6 @@ function Checkout() {
                     {cart.map((pizza) => {
                         return <tr key={pizza.id}><td>{pizza.name}</td><td>{pizza.price}</td></tr>
                     })}
-                    <tr>
-                        <td>{cart.name}</td>
-                        <td>{cart.price}</td>
-                    </tr>
                 </tbody>
             </table>
             <h3>Total: {total}</h3>
