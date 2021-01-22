@@ -22,6 +22,10 @@ function PizzaItem({pizza}) {
         setClickedAdd(!clickedAdd);
 
         dispatch({type: 'SUBTRACT_PRICE', payload: Number(pizza.price)})
+        // filtering through pizzaList to find the id of the pizza we clicked on
+        // then sending that pizza.price to the reducer
+        dispatch({type: 'TOTAL_PRICE', payload: Number(pizza.price)});
+        dispatch({ type: 'ADD_CART', payload: pizza });
     }
 
 
