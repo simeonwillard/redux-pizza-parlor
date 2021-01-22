@@ -1,11 +1,10 @@
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react';
-import { useState } from 'react';
+import PizzaItem from '../PizzaItem/PizzaItem';
 
 function PizzaList() {
 
-    const [clickedAdd, setClickedAdd] = useState();
 
     const pizzaList = useSelector(state => state.pizzaList);
     console.log(pizzaList);
@@ -31,17 +30,15 @@ function PizzaList() {
         getPizza();
     }, []);
 
-    const handleAdd = (event) => {
-        console.log('clicked add');
-        setClickedAdd(!clickedAdd);
+    // const handleAdd = (event) => {
 
-        // filtering through pizzaList to find the id of the pizza we clicked on
-        // then sending that pizza.price to the reducer
-        const payload = pizzaList.filter((pizza) => pizza.id === event);
-        dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
+    //     // filtering through pizzaList to find the id of the pizza we clicked on
+    //     // then sending that pizza.price to the reducer
+    //     const payload = pizzaList.filter((pizza) => pizza.id === event);
+    //     dispatch({type: 'TOTAL_PRICE', payload: Number(payload[0].price)});
         
 
-    }
+    // }
 
     return (
         <div>
@@ -54,8 +51,9 @@ function PizzaList() {
                     <p>Price: {pizza.price}</p>
                     </div>
                     </div>
-                    <button onClick={(event) => handleAdd(pizza.id)}>Add</button>
-                    {clickedAdd && <button>Remove</button>}
+                    {/* {clickedAdd ? <button>Remove</button> : <button onClick={(event) => handleAdd(pizza.id)}>Add</button>} */}
+                    <PizzaItem />
+                    
                 </div>  
             ))}
         </div>
