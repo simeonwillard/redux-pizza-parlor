@@ -5,27 +5,31 @@ import PizzaItem from '../PizzaItem/PizzaItem';
 import { useHistory } from 'react-router-dom';
 
 function PizzaList() {
+  const pizzaList = useSelector((state) => state.pizzaList);
+  console.log(pizzaList);
 
+  const dispatch = useDispatch();
 
-    const pizzaList = useSelector(state => state.pizzaList);
-    console.log(pizzaList);
+  function getPizza() {
+    axios
+      .get('/api/pizza')
+      .then((response) => {
+        const action = {
+          type: 'SET_PIZZA',
+          payload: response.data,
+        };
+        dispatch(action);
+      })
+      .catch((error) => {
+        alert('error in GET');
+        console.log(error);
+      });
+  }
 
     const dispatch = useDispatch();
     const history = useHistory();
 
-    function getPizza() {
-        axios.get('/api/pizza')
-            .then(response => {
-                const action = {
-                    type: 'SET_PIZZA',
-                    payload: response.data
-                }
-                dispatch(action);
-            }).catch(error => {
-                alert('error in GET');
-                console.log(error);
-            });
-    }
+  // const handleAdd = (event) => {
 
     const handleNext = () => {
         history.push('/customerForm');

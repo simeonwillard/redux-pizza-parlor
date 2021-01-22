@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-
-
+import { useSelector, useDispatch } from 'react-redux';
 
 function PizzaItem({pizza}) {
 
@@ -41,7 +39,5 @@ function PizzaItem({pizza}) {
         </section>
     )
 }
-
-
 
 export default PizzaItem;
