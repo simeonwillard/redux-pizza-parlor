@@ -43,8 +43,11 @@ const pizzaList = (state = [], action) => {
 
 const priceTotalReducer = (state = 0, action) => {
     switch (action.type) {
-        case 'TOTAL_PRICE':
+        case 'ADD_PRICE':
             return state + action.payload;
+
+        case 'SUBTRACT_PRICE':
+            return state + (-action.payload);
 
         default:
             return state;

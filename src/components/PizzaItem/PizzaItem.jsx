@@ -13,6 +13,15 @@ function PizzaItem({pizza}) {
         console.log('clicked add');
         setClickedAdd(!clickedAdd);
 
+        
+        dispatch({type: 'ADD_PRICE', payload: Number(pizza.price)});
+    }
+
+    const handleRemove = () => {
+        console.log('clicked remove');
+        setClickedAdd(!clickedAdd);
+
+        dispatch({type: 'SUBTRACT_PRICE', payload: Number(pizza.price)})
         // filtering through pizzaList to find the id of the pizza we clicked on
         // then sending that pizza.price to the reducer
         dispatch({type: 'TOTAL_PRICE', payload: Number(pizza.price)});
@@ -23,7 +32,9 @@ function PizzaItem({pizza}) {
     return (
         <section>
             <div>
-            {clickedAdd ? <button>Remove</button> : <button onClick={handleAdd}>Add</button>} 
+            {clickedAdd 
+            ? <button onClick={handleRemove}>Remove</button> 
+            : <button onClick={handleAdd}>Add</button>} 
             </div>
         </section>
     )
