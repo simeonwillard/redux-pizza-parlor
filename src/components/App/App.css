@@ -53,8 +53,9 @@ table {
 .menu-container {
   display: flex;
   flex-wrap: wrap;
-  width: 100vw;
-  margin: 2rem;
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pizza-card {
