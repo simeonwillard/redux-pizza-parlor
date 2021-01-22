@@ -52,7 +52,7 @@ function PizzaList() {
                     </div>
                     </div>
                     {/* {clickedAdd ? <button>Remove</button> : <button onClick={(event) => handleAdd(pizza.id)}>Add</button>} */}
-                    <PizzaItem />
+                    <PizzaItem pizza={pizza}/>
                     
                 </div>  
             ))}
