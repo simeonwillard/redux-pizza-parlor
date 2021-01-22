@@ -14,7 +14,7 @@ export default function Header() {
           src="/images/cart.svg"
           alt="A shopping cart icon"
         />
-        <h2>Total: {roundedTotal}</h2>
+        <h2>Total: ${roundedTotal}</h2>
       </div>
     </header>
   );
