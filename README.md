@@ -42,5 +42,5 @@ Express.js
 
 
 ## Acknowledgement
-Thanks to Prime Digital Academy who equipped and helped me to make this application a reality.  Also, thank you to my group mates, Justin Applegren, Travis Huss, and Connor Detviler for working with me to create this app.
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality.  Also, thank you to my group mates, Justin Applegren, Sean Wade, and Connor Detviler for working with me to create this app.
 
