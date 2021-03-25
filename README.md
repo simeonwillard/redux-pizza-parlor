@@ -1,111 +1,46 @@
 # React Pizza Parlor
 
-Before you get started make sure to read through **ALL** requirements and outline a plan for your group. Assign out tasks and use branches to allow team members to work in parallel.
+## Description
 
-### Setup
+Duration: 2 Day Sprint
 
-Server side code for baseline functionality has been provided for you. Each member of your team will need to create a `pizza_parlor` database. .
+React Pizza Parlor simulates a pizza restaurant. Users are able to order pizza, they can see how much their bill will be as they add pizzas to their order.  The user can add or remove pizzas from their order.  When the user is satisfied they can checkout, enter their customer information for either pickup or delivery.  The user can then review their order and checkout.  The admin can then log in and see all the orders that have been placed.  The time the order has been placed, the type of order (pickup or delivery), and the cost of the order, as well as who ordered it.   
 
-**Import data**
 
-Right now, the owner enters all of the orders in SQL, but they want any of their employees to be able to enter a new order. The owner has provided some of the server side routes and a way to create their database with (`database.sql`). Your team should build out the following views.
+## Prerequisites 
 
-**Start your server**
+Node.js
+PostgreSQL
 
-```
-npm install
-npm run server
-```
 
-Now that the server is running, open a new terminal tab with `cmd + t` and start the react client app.
+## Installation
 
-**Start your client**
+1. Create a database named 'pizza_parlor'.
+2. The queries in the 'database.sql' file are set up to create all the necessary tables and populate the nedded dat to allow the application to run correctly.  The project is built on Postgres, so you will need to ake sure to have that installed.  I recommend using Postico to run those queries as that was used to create the queries.
+3. Open your editor of choice and run an 'npm install'.
+4. Run 'npm run server' in your terminal.
+5. Run 'npm run client' in your terminal.
+6. The 'npm run client' command will open up a new browser tab for you!
 
-```
-npm run client
-```
+## Usage
 
-## Base Mode ad API DOCS
+1.  A user can open up the app and view the menu of the pizza parlor.
+2.  The user can choose to add/remove pizzas to their order.
+3.  The user can then click the "checkout" button and select what type of order they want and enter the relevant information.
+4.  The user can then review their order and confirm it.
+5.  An admin user can log in and view all the orders that have been placed at the parlor.
 
-The tasks for Base Mode are broken down further [on this Trello Board](https://trello.com/b/aWXfG8D6/redux-pizza-parlor). Take time before diving into the code to copy this board and build out the plan even further.
 
-After starting up the server, the following routes should be available. You can test them with Postman.
+## Built With
+React
+Redux
+Redux-Saga
+PostgreSQL
+Material-UI
+Node.js
+Express.js
 
-### GET PIZZA
 
-`/api/pizza`
+## Acknowledgement
+Thanks to Prime Digital Academy who equipped and helped me to make this application a reality.  Also, thank you to my group mates, Justin Applegren, Travis Huss, and Connor Detviler for working with me to create this app.
 
-**Returns** an array of objects with \*
-
-*, *name*, *description*, *image_path* and *cost\* properties.
-
-### POST ORDER
-
-`/api/order`
-
-**Post Data** should be an object that contains user information, _customer name_, _street address_, _city_, _zip_, _order_total_ and an array of pizza id's as object.
-
-**Example JSON Post Data:**
-
-```JSON
-{
-  "customer_name": "Donatello",
-  "street_address": "20 W 34th St",
-  "city": "New York",
-  "zip": "10001",
-  "total": "27.98",
-  "type": "Pickup",
-  "pizzas": [{
-    "id": "1",
-    "quantity": "1"
-  },{
-    "id": "2",
-    "quantity": "1"
-  }]
-}
-```
-
-### GET ORDERS
-
-`/api/order`
-
-**Returns** an array of orders.
-
-## BASE REQUIREMENTS
-
-Your client has asked your team to build a pizza ordering system.
-
-### ORDER - SELECT PIZZA
-
-When visiting [http://localhost:3000/](http://localhost:3000/) display all of the pizzas on the screen. Allow users to add or remove each pizza they would like to order. **For base mode, only allow the user to have one of each pizza in their cart.** Show the total cost of items in the cart in the top right of this page.
-
-This page should have a next button that brings the user to the **enter order details page**.
-
-![Select Pizza View](wireframes/screen-one.png)
-
-### ORDER - ENTER CUSTOMER INFORMATION
-
-Collect user information, _name_, _street address_, _city_ and _zip_. This page should have an option to select pickup vs. delivery. The total cost of the order should appear in the top right of this page. This page should have a next button that brings the user to the **checkout** page.
-
-![Select Pizza View](wireframes/screen-two.png)
-
-### ORDER - CHECKOUT
-
-Users should not be able to modify item totals on this screen. When they click checkout, the user information, order total and array of pizzas should be sent to the server. After the checkout is complete, navigate the user back to the **select pizza** page AND clear out the reducers as appropriate. Each order should begin with "clean" order data (cart, address, etc).
-
-![Select Pizza View](wireframes/screen-three.png)
-
-### ADMIN - ORDERS
-
-This page **should not** appear in the navigation bar. Eventually the client would like to add authentication but for now, it will be available to anyone with the url [http://localhost:3000/admin](http://localhost:3000/admin). This page will display the name, time and order total for each of the orders placed.
-
-![Select Pizza View](wireframes/screen-admin.png)
-
-## STRETCH GOALS
-
-- Improve the styling of the app using Material-UI cards, buttons, nav bar and icons.
-- Allow the user to go back to previous pages (until they've completed checkout).
-- Display a list of pizzas for each order on the orders page.
-- Add pictures to the `public/images` folder and update the image url for each pizza in the database.
-- Add a button on the orders page to track delivery status.
-- Allow admins to click on an order and see all of the details for that order (which pizzas were a part of that particular order). For the details of the order with `id` of `1`, it will be available to anyone with the url [http://localhost:3000/order/1](http://localhost:3000/order/1). This route is not built on the server, so you will need to create it.
